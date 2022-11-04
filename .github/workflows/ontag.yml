@@ -11,10 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Release ${{ github.ref }}
+        uses: softprops/action-gh-release@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
           files: |
             LICENSE
       # - name: Create release
